@@ -4,7 +4,7 @@
   become: yes
   yum: name=git
 
-- name: check out rbenv
+- name: check out nvm
   git:
     repo: "{{nvm_repo_url}}"
     dest: "{{nvm_install_path}}"
