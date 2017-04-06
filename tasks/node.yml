@@ -3,7 +3,7 @@
 - name: install node
   shell: >
     source {{nvm_profile_path}} &&
-    if ! nvm ls | awk '{print $1$2}' | grep -Eq '^(->)?{{version}}\*?$'; then
+    if ! nvm ls --no-colors | awk '{print $1$2}' | grep -Eq '^(->)?{{version}}\*?$'; then
       nvm install {{version}} && echo -e \\nchanged
     fi
   args:
