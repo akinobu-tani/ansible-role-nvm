@@ -1,0 +1,18 @@
+---
+
+- name: install node
+  shell: >
+    source {{nvm_profile_path}} &&
+    if ! nvm ls | awk '{print $1$2}' | grep -Eq '^(->)?{{version}}\*?$'; then
+      nvm install {{version}} && echo -e \\nchanged
+    fi
+  args:
+    executable: /bin/bash
+  register: result
+  changed_when: "'changed' in result.stdout_lines"
+
+- name: use default version
+  shell: "source {{nvm_profile_path}} && nvm use default"
+  args:
+    executable: /bin/bash
+  changed_when: false

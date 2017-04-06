@@ -1,3 +1,7 @@
 ---
 
 nvm_repo_url: https://github.com/creationix/nvm.git
+
+node_dependencies:
+  - gcc-c++
+  - openssl-devel

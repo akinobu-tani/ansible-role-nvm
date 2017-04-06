@@ -14,6 +14,15 @@ Role Variables
 --------------
 
 ``` yaml
+nvm_version: HEAD
+
+node_versions:
+  - v6.10.2
+
+nvm_default_version: v6.10.2
+
+nvm_install_path: $HOME/.nvm
+nvm_profile_path: $HOME/.bash_profile
 ```
 
 Dependencies
@@ -27,6 +36,9 @@ Example Playbook
 ``` yaml
 - hosts: servers
   vars:
+    node_versions:
+      - v6.10.2
+    nvm_default_version: v6.10.2
   roles:
      - nvm
 ```

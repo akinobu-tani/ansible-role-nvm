@@ -1,4 +1,4 @@
 ---
 
 - include: nvm.yml
-# - include: nodes.yml
+- include: nodes.yml

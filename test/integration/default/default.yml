@@ -3,3 +3,7 @@
 - hosts: localhost
   roles:
     - ansible-role-nvm
+  vars:
+    node_versions:
+      - v6.10.2
+    nvm_default_version: v6.10.2

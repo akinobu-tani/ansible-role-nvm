@@ -1,0 +1,26 @@
+---
+
+# - name: install dependencies
+#   become: yes
+#   yum: name={{item}}
+#   with_items:
+#     - "{{ node_dependencies }}"
+#   when: node_versions|length > 0
+
+- name: configure nodes
+  include: node.yml
+  with_items: "{{node_versions}}"
+  loop_control:
+    loop_var: version
+
+- name: set to global version
+  shell: >
+    source {{nvm_profile_path}} &&
+    if ! nvm current --no-colors | grep -Eq '^{{nvm_default_version}}$'; then
+      nvm alias default {{nvm_default_version}} && echo -e \\nchanged
+    fi
+  args:
+    executable: /bin/bash
+  register: result
+  changed_when: "'changed' in result.stdout_lines"
+  when: nvm_default_version is defined
