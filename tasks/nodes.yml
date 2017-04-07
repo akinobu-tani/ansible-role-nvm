@@ -1,12 +1,5 @@
 ---
 
-# - name: install dependencies
-#   become: yes
-#   yum: name={{item}}
-#   with_items:
-#     - "{{ node_dependencies }}"
-#   when: node_versions|length > 0
-
 - name: configure nodes
   include: node.yml
   with_items: "{{node_versions}}"
