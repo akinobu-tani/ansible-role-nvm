@@ -23,6 +23,9 @@ nvm_default_version: v6.10.2
 
 nvm_install_path: $HOME/.nvm
 nvm_profile_path: $HOME/.bash_profile
+
+npm_packages:
+  - yarn
 ```
 
 Dependencies
