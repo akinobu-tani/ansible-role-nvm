@@ -3,5 +3,7 @@
 nvm_install_path: $HOME/.nvm
 nvm_profile_path: $HOME/.bash_profile
 nvm_version: HEAD
+npm_packages:
+  - yarn
 
 node_versions: []
